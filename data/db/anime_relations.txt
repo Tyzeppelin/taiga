@@ -31,7 +31,7 @@
 - version: 1.2.0
 
 # Update this date when you add, remove or modify a rule.
-- last_modified: 2015-12-29
+- last_modified: 2016-01-12
 
 ::rules
 
@@ -40,6 +40,9 @@
 
 # Acchi Kocchi (TV) -> ~: Place=Princess
 - 12291|6701:13 -> 16273|7401:1
+
+# Akagami no Shirayuki-hime -> ~ 2nd Season
+- 30123|10621:13-24 -> 31173|11179:1-12!
 
 # Akuma no Riddle -> ~: Shousha wa Dare? Nukiuchi Test
 - 19429|7844:13 -> 24751|8724:1
@@ -143,11 +146,14 @@
 # Gatchaman Crowds Insight -> ~: Inbound
 - 21039|8180:0 -> 30925|11033:1
 
+# Gate: Jieitai Kanochi nite, Kaku Tatakaeri -> ~ 2nd Season
+- 28907|10085:13-24 -> 31637|11376:1-12!
+
 # Gintama -> ~'
 - 918|818:202-252 -> 9969|5971:1-51!
 # Gintama -> ~': Enchousen
 - 918|818:253-265 -> 15417|7253:1-13!
-# Gintama -> ~' (2015)
+# Gintama -> ~°
 - 918|818:266-? -> 28977|10083:1-?!
 
 # God Eater -> ~ Prologue
@@ -387,7 +393,9 @@
 # Teekyuu -> ~ 5
 - 15125|7217:49-60 -> 30567|10858:1-12!
 # Teekyuu -> ~ 6
-- 15125|7217:61-? -> 31440|11334:1-?!
+- 15125|7217:61-72 -> 31440|11334:1-12!
+# Teekyuu -> ~ 7
+- 15125|7217:73-84 -> 32228|11597:1-12!
 
 # Tegami Bachi -> ~ Reverse
 - 6444|4564:26-50 -> 8311|5288:1-25!

@@ -410,12 +410,20 @@ void Aggregator::ParseDescription(FeedItem& feed_item,
     feed_item.description =
         feed_item.description.substr(index_begin, index_end);
 
+  // Haruhichan
+  } else if (InStr(source, L"haruhichan", 0, true) > -1) {
+    feed_item.info_link = feed_item.description;
+
   // NyaaTorrents
   } else if (InStr(source, L"nyaa", 0, true) > -1) {
-    feed_item.episode_data.file_size =
-        InStr(feed_item.description, L" - ", L" - ");
-    Erase(feed_item.description, feed_item.episode_data.file_size);
-    ReplaceString(feed_item.description, L"-  -", L"-");
+    std::vector<std::wstring> description_vector;
+    Split(feed_item.description, L" - ", description_vector);
+    if (description_vector.size() > 1) {
+      feed_item.episode_data.file_size = description_vector.at(1);
+      description_vector.erase(description_vector.begin() + 1);
+      feed_item.description = Join(description_vector, L" - ");
+    }
+    feed_item.info_link = feed_item.guid;
 
   // TokyoTosho
   } else if (InStr(source, L"tokyotosho", 0, true) > -1) {
@@ -435,10 +443,7 @@ void Aggregator::ParseDescription(FeedItem& feed_item,
             InStr(it, L"<a href=\"magnet:?", L"\">Magnet Link</a>");
       }
     }
-
-  // Yahoo! Pipes
-  } else if (InStr(source, L"pipes.yahoo.com", 0, true) > -1) {
-    Erase(feed_item.title, L"<span class=\"s\"> </span>");
+    feed_item.info_link = feed_item.guid;
   }
 }
 
